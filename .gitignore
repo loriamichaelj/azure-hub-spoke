@@ -1,0 +1,27 @@
+# Secrets and keys
+*.pem
+*.key
+*.pub
+id_rsa*
+id_ed25519*
+.env
+.env.*
+
+# Terraform/Bicep state (project 4)
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+
+# Local overrides
+local.*
+*.local.sh
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor junk
+.vscode/
+.idea/
+*.swp
