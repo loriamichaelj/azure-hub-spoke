@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Variables — edit these
-LOCATION=westus2             # B1s capacity-restricted in eastus
+LOCATION=westus2             # B1s not offered here; 4-core regional quota -> 1-vCPU VMs
 RG=rg-hubspoke-lab
 MY_IP=$(curl -4 -s ifconfig.me)/32
 ADMIN_USER=azureuser
@@ -60,19 +60,19 @@ az network vnet subnet update -g $RG --vnet-name vnet-spoke-1 -n snet-spoke1-app
 az network vnet subnet update -g $RG --vnet-name vnet-spoke-2 -n snet-spoke2-app --nsg nsg-spoke2-app
 
 # Jump host (B1s, Ubuntu, SSH key auth, public IP)
-az vm create -g $RG -n vm-jump --image Ubuntu2204 --size Standard_B1s \
+az vm create -g $RG -n vm-jump --image Ubuntu2204 --size Standard_F1als_v7 \
   --vnet-name vnet-hub --subnet snet-hub-mgmt \
   --admin-username $ADMIN_USER --ssh-key-values $SSH_KEY_PATH \
   --public-ip-sku Standard --public-ip-address-allocation Static \
   --os-disk-size-gb 30 --storage-sku StandardSSD_LRS
 
 # Spoke test VMs (no public IP)
-az vm create -g $RG -n vm-spoke1 --image Ubuntu2204 --size Standard_B1s \
+az vm create -g $RG -n vm-spoke1 --image Ubuntu2204 --size Standard_F1als_v7 \
   --vnet-name vnet-spoke-1 --subnet snet-spoke1-app \
   --admin-username $ADMIN_USER --ssh-key-values $SSH_KEY_PATH \
   --public-ip-address "" --os-disk-size-gb 30 --storage-sku StandardSSD_LRS
 
-az vm create -g $RG -n vm-spoke2 --image Ubuntu2204 --size Standard_B1s \
+az vm create -g $RG -n vm-spoke2 --image Ubuntu2204 --size Standard_F1als_v7 \
   --vnet-name vnet-spoke-2 --subnet snet-spoke2-app \
   --admin-username $ADMIN_USER --ssh-key-values $SSH_KEY_PATH \
   --public-ip-address "" --os-disk-size-gb 30 --storage-sku StandardSSD_LRS
