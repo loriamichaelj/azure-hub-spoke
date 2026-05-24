@@ -14,6 +14,9 @@ the imperative-vs-declarative diff is itself an artifact.
 
 ## Architecture
 
+[Hub and Spoke Network Topology Architecture Diagram](./assets/img/architecture.pdf)
+
+
 ```
                               Internet
                                  │
