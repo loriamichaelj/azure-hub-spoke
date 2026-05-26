@@ -4,8 +4,12 @@
 *.pub
 id_rsa*
 id_ed25519*
+azure_lab
+azure_lab.*
 .env
 .env.*
+credentials.json
+*_credentials.json
 
 # Terraform/Bicep state (project 4)
 *.tfstate

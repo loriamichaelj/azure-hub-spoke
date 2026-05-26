@@ -42,11 +42,11 @@ optional.
 IPs are dynamic — re-query after any redeploy; values below are from the
 2026-05-21 redeploy.
 
-| VM        | Subnet          | Private IP | Public IP     |
-|-----------|-----------------|------------|---------------|
-| vm-jump   | snet-hub-mgmt   | 10.0.2.4   | 20.29.193.188 |
-| vm-spoke1 | snet-spoke1-app | 10.1.1.4   | — (private)   |
-| vm-spoke2 | snet-spoke2-app | 10.2.1.4   | — (private)   |
+| VM        | Subnet          | Private IP | Public IP          |
+|-----------|-----------------|------------|--------------------|
+| vm-jump   | snet-hub-mgmt   | 10.0.2.4   | (dynamic, re-query)|
+| vm-spoke1 | snet-spoke1-app | 10.1.1.4   | — (private)        |
+| vm-spoke2 | snet-spoke2-app | 10.2.1.4   | — (private)        |
 
 ### Verification: scripts/verify.sh (new)
 A 20-test suite in five sections, each mapped to a property of the
