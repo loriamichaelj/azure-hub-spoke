@@ -8,10 +8,6 @@ through it. The lab exists to demonstrate VNet peering, network segmentation,
 NSG-based access control, and cost-disciplined cloud operation, and to leave
 behind a verification suite that proves the topology behaves as designed.
 
-This is Project 1 of a multi-project Azure portfolio. It is built with the
-Azure CLI by design — Project 4 re-implements the same topology in Bicep, so
-the imperative-vs-declarative diff is itself an artifact.
-
 ## Architecture
 
 [Hub and Spoke Network Topology Architecture Diagram](./assets/img/architecture.pdf)
